@@ -30,4 +30,18 @@ class CommentController extends Controller
             'message'=>'Comment was uploaded successfully'
         ]);
     }
+
+    public function delete($post_id){
+        $user_id = Auth::user()->id;
+
+        $comment = Comment::where('user_id', $user_id)
+            ->where('post_id', $post_id)
+            ->first();
+
+        $comment->delete();
+
+        return redirect()->route('home')->with([
+            'message'=>'Comment deleted successfully '
+        ]);
+    }
 }

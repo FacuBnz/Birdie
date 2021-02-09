@@ -46,6 +46,5 @@ class LikeController extends Controller
         $like->delete();
         return redirect()->route('home');
 
-
     }
 }

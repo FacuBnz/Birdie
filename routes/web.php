@@ -46,3 +46,4 @@ Route::post('/save', [App\Http\Controllers\PostController::class, 'save'])->name
 Route::get('/like/{post_id}', [App\Http\Controllers\LikeController::class, 'newLike'])->name('like');
 Route::get('/dislike/{post_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('dislike');
 Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
+Route::get('/comment/delete/{post_id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');

@@ -29,7 +29,13 @@
                                     @if($comment->user->image)
                                         <img src="{{ route('user.avatar',['filename' => $comment->user->image]) }}" alt="Avatar de {{ $comment->user->name }}" class="avatar-login img-thumbnail rounded-circle">
                                     @endif
-                                    {{ $comment->user->name }} {{ $comment->user->surname }} <span class="text-muted">{{ \App\Helpers\FormatTime::LongTimeFilter($comment->created_at) }}</span>
+                                    <strong>{{ $comment->user->name }} {{ $comment->user->surname }}</strong> <span class="text-muted">{{ \App\Helpers\FormatTime::LongTimeFilter($comment->created_at) }}</span>
+
+                                    @if($comment->user->id == Auth::user()->id)
+                                        <a href="{{ route('comment.delete', ['post_id'=> $post->id]) }}" class="close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </a>
+                                    @endif
                                 </div>
                                 <div class="card-body text-dark">
                                     <p class="card-text">{{ $comment->comment }}</p>
