@@ -43,6 +43,7 @@ Route::get('/setting', [App\Http\Controllers\UserController::class, 'config'])->
 Route::post('/edit', [App\Http\Controllers\UserController::class, 'update'])->name('edit');
 Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar');
 Route::post('/save', [App\Http\Controllers\PostController::class, 'save'])->name('save');
+Route::get('/post/delete/{post_id}', [App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
 Route::get('/like/{post_id}', [App\Http\Controllers\LikeController::class, 'newLike'])->name('like');
 Route::get('/dislike/{post_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('dislike');
 Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
