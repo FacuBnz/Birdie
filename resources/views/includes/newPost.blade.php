@@ -1,11 +1,11 @@
 <div class="card border-light mb-3 shadow-sm bg-white rounded position-static">
     <div class="card-body">
-        <button type="button" class="btn btn-outline-primary btn-lg btn-block fixed rounded-pill" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-outline-primary btn-lg btn-block fixed rounded-pill" data-toggle="modal" data-target="#ModalPost">
             Write new post
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ModalPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <form action="{{ route("save") }}" method="post">
                     @csrf
@@ -20,11 +20,10 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <textarea id="content" class="form-control @error('content') is-invalid @enderror" name="content" rows="3" placeholder="Write here..."></textarea>
-
                                 @error('content')
-                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>

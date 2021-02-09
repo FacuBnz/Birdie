@@ -45,3 +45,4 @@ Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::clas
 Route::post('/save', [App\Http\Controllers\PostController::class, 'save'])->name('save');
 Route::get('/like/{post_id}', [App\Http\Controllers\LikeController::class, 'newLike'])->name('like');
 Route::get('/dislike/{post_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('dislike');
+Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
