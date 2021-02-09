@@ -59,7 +59,9 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="">New Post</a>
+                                <button type="button" class="nav-link border-0 bg-white" data-toggle="modal" data-target="#ModalPost">
+                                    New Post
+                                </button>
                             </li>
 
                             <li class="nav-item dropdown">
