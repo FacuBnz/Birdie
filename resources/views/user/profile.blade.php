@@ -9,13 +9,15 @@
             <div class="col position-sticky">
                 <div class="card">
                     @if(Auth::user()->image)
-                        <img src="{{ route('user.avatar',['filename' => Auth::user()->image]) }}" class="card-img-top" alt="Avatar of {{ Auth::user()->name }}">
+                        <img src="{{ route('user.avatar',['filename' => $user->image]) }}" class="card-img-top" alt="Avatar of {{ $user->name }}">
                     @endif
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold">{{ Auth::user()->name }} {{ Auth::user()->surname }}</h5>
-                        <span>Nickname:</span><p>{{ Auth::user()->nickname }}</p>
-                        <span>Email:</span><p>{{ Auth::user()->email }}</p>
-                        <a href="{{ route('setting') }}" class="btn btn-primary">Editar</a>
+                        <h5 class="card-title font-weight-bold">{{ $user->name }} {{ $user->surname }}</h5>
+                        <span>Nickname:</span><p>{{ $user->nickname }}</p>
+                        <span>Email:</span><p>{{ $user->email }}</p>
+                        @if($user->id == Auth::user()->id)
+                            <a href="{{ route('setting') }}" class="btn btn-primary">Editar</a>
+                        @endif
                     </div>
                 </div>
             </div>

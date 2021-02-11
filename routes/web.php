@@ -39,7 +39,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user/profile',[App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::get('/user/profile/{user_id}',[App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 Route::get('/user/setting', [App\Http\Controllers\UserController::class, 'config'])->name('setting');
 Route::post('user/edit', [App\Http\Controllers\UserController::class, 'update'])->name('edit');
 Route::get('/user/avatar/{filename}', [App\Http\Controllers\UserController::class, 'getImage'])->name('user.avatar');

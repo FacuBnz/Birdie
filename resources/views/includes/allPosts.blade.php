@@ -5,7 +5,8 @@
             @if($post->user->image)
                 <img src="{{ route('user.avatar',['filename' => $post->user->image]) }}" alt="Avatar de {{ $post->user->name }}" class="avatar-login img-thumbnail rounded-circle">
             @endif
-            <strong>{{ $post->user->name }} {{ $post->user->surname }}</strong> <span class="text-muted">{{ \App\Helpers\FormatTime::LongTimeFilter($post->created_at) }}</span>
+
+                <a href="{{ route('profile', ['user_id'=>$post->user->id]) }}" class="text-decoration-none"><strong>{{ $post->user->name }} {{ $post->user->surname }}</strong></a> <span class="text-muted">{{ \App\Helpers\FormatTime::LongTimeFilter($post->created_at) }}</span>
             @if($post->user->id == Auth::user()->id)
                 <a href="{{ route('post.delete', ['post_id'=> $post->id]) }}" class="close">
                     <span aria-hidden="true">&times;</span>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,9 @@ use Laravel\Ui\Presets\React;
 
 class UserController extends Controller
 {
-    public function profile(){
-        $user_id = Auth::user()->id;
+    public function profile($user_id){
+
+        $user = User::find($user_id);
 
         $posts = Post::orderBy('id','desc')
             ->where('user_id', $user_id)
@@ -25,6 +27,7 @@ class UserController extends Controller
         return view('user.profile', [
             'posts'=>$posts,
             'all_posts'=>$all_posts,
+            'user'=>$user,
         ]);
     }
 

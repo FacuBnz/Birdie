@@ -1,6 +1,6 @@
 @foreach ($all_posts as $post)
     @foreach($post->likes as $like)
-        @if($like->user_id == Auth::user()->id)
+        @if($like->user_id == $user->id)
             <div class="card border-light mb-5 shadow-sm bg-white rounded">
                 <div class="card-header">
                     @if($post->user->image)

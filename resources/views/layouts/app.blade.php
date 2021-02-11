@@ -55,10 +55,18 @@
                         @else
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Start</a>
+                                <a class="nav-link" href="{{ route('home') }}" data-toggle="tooltip" data-placement="bottom" title="Home">
+                                    Home
+                                </a>
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}" data-toggle="tooltip" data-placement="bottom" title="Home">
+                                    People
+                                </a>
+                            </li>
+
+                            <li class="nav-item" data-toggle="tooltip" data-placement="bottom" title="New Post">
                                 <button type="button" class="nav-link border-0 bg-white" data-toggle="modal" data-target="#ModalPost">
                                     New Post
                                 </button>
@@ -66,18 +74,16 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
                                     @if(Auth::user()->image)
                                         <img src="{{ route('user.avatar',['filename' => Auth::user()->image]) }}" alt="Avatar de {{ Auth::user()->name }}" class="avatar-login img-thumbnail rounded-circle">
                                     @else
                                         {{ Auth::user()->name }}
                                     @endif
-
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <a class="dropdown-item" href="{{ route('profile',['user_id'=>Auth::user()->id]) }}">
                                         Profile
                                     </a>
 
