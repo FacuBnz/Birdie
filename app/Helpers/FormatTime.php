@@ -19,51 +19,51 @@ class FormatTime {
                     if ($since_start->h == 0) {
                         if ($since_start->i == 0) {
                             if ($since_start->s == 0) {
-                                $result = $since_start->s . ' seconds';
+                                $result = $since_start->s . ' seconds ago';
                             } else {
                                 if ($since_start->s == 1) {
-                                    $result = $since_start->s . ' second';
+                                    $result = $since_start->s . ' second ago';
                                 } else {
-                                    $result = $since_start->s . ' seconds';
+                                    $result = $since_start->s . ' seconds ago';
                                 }
                             }
                         } else {
                             if ($since_start->i == 1) {
-                                $result = $since_start->i . ' minute';
+                                $result = $since_start->i . ' minute ago';
                             } else {
-                                $result = $since_start->i . ' minutes';
+                                $result = $since_start->i . ' minutes ago';
                             }
                         }
                     } else {
                         if ($since_start->h == 1) {
-                            $result = $since_start->h . ' hour';
+                            $result = $since_start->h . ' hour ago';
                         } else {
-                            $result = $since_start->h . ' hours';
+                            $result = $since_start->h . ' hours ago';
                         }
                     }
                 } else {
                     if ($since_start->d == 1) {
-                        $result = $since_start->d . ' day';
+                        $result = $since_start->d . ' day ago';
                     } else {
-                        $result = $since_start->d . ' days';
+                        $result = $since_start->d . ' days ago';
                     }
                 }
             } else {
                 if ($since_start->m == 1) {
-                    $result = $since_start->m . ' month';
+                    $result = $since_start->m . ' month ago';
                 } else {
-                    $result = $since_start->m . ' months';
+                    $result = $since_start->m . ' months ago';
                 }
             }
         } else {
             if ($since_start->y == 1) {
-                $result = $since_start->y . ' year';
+                $result = $since_start->y . ' year ago';
             } else {
-                $result = $since_start->y . ' years';
+                $result = $since_start->y . ' years ago';
             }
         }
 
-        return "Hace " . $result;
+        return $result;
     }
 }
 
