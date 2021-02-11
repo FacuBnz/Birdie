@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
+use App\Models\Post;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,13 +13,28 @@ use Laravel\Ui\Presets\React;
 
 class UserController extends Controller
 {
+    public function profile(){
+        $user_id = Auth::user()->id;
+
+        $posts = Post::orderBy('id','desc')
+            ->where('user_id', $user_id)
+            ->get();
+
+        $all_posts = Post::orderBy('id', 'desc')->get();
+
+        return view('user.profile', [
+            'posts'=>$posts,
+            'all_posts'=>$all_posts,
+        ]);
+    }
+
     public function config(){
 
         return view('user.config');
     }
 
     public function update(Request $request){
-        
+
         //Get user identified
         $user = Auth::user();
         $id = Auth::user()->id;
@@ -36,16 +53,16 @@ class UserController extends Controller
         $surname = $request->input('surname');
         $nickname = $request->input('nickname');
         $email = $request->input('email');
-        
+
         //assign new data
         $user->name = $name;
         $user->surname = $surname;
         $user->nickname = $nickname;
         $user->email = $email;
-        
-        
+
+
         $image = $request->file('image');
-        
+
         if($image){
             //assign unique name
             $image_full = time().$image->getClientOriginalName();
@@ -62,7 +79,7 @@ class UserController extends Controller
         return redirect()->route('setting')->with([
             'message'=>'User updated successfully'
         ]);
-        
+
     }
 
     public function getImage($filename){

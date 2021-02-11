@@ -27,7 +27,9 @@ class LikeController extends Controller
             //guardar
             $like->save();
         }
-        return redirect()->route('home');
+        return redirect()->route('home')->with([
+            'message'=> 'I like it correctly given'
+        ]);
 
     }
 
@@ -44,7 +46,9 @@ class LikeController extends Controller
 
         //eleminar like
         $like->delete();
-        return redirect()->route('home');
+        return redirect()->route('home')->with([
+            'message'=>'dislike successfully'
+        ]);
 
     }
 }
