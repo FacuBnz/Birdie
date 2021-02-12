@@ -49,4 +49,4 @@ Route::get('/like/{post_id}', [App\Http\Controllers\LikeController::class, 'newL
 Route::get('/dislike/{post_id}', [App\Http\Controllers\LikeController::class, 'dislike'])->name('dislike');
 Route::post('/comment/save', [App\Http\Controllers\CommentController::class, 'save'])->name('comment.save');
 Route::get('/comment/delete/{post_id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('comment.delete');
-
+Route::get('/people/{search?}',[App\Http\Controllers\UserController::class, 'people'])->name('people');

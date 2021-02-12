@@ -91,4 +91,20 @@ class UserController extends Controller
         return new Response($file, 200);
     }
 
+    public function people($search = null){
+        if($search != null){
+            $users = User::where('nickname','LIKE','%'.$search.'%')
+                ->orWhere('name','LIKE','%'.$search.'%')
+                ->orWhere('surname','LIKE','%'.$search.'%')
+                ->orderBy('id', 'desc')
+                ->simplePaginate(5);
+        }else{
+            $users = User::orderBy('id', 'desc')->simplePaginate(5);
+        }
+
+        return view('user.people', [
+            'users'=>$users,
+        ]);
+    }
+
 }

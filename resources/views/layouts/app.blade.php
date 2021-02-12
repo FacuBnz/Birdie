@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -61,7 +62,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}" data-toggle="tooltip" data-placement="bottom" title="Home">
+                                <a class="nav-link" href="{{ route('people') }}" data-toggle="tooltip" data-placement="bottom" title="Home">
                                     People
                                 </a>
                             </li>
