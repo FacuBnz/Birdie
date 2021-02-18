@@ -13,7 +13,7 @@ Birdie cuenta con registro/inicio de sesión, crear publicaciones, dar likes, co
 Abre la consola de comandos de Git (Windows) o la Terminal en sistemas basados en Unix (Mac o Linux) y posiciónate en la carpeta que clonarás tu repositorio con el comando:
 
 ```bash
-cd
+cd nombre-de-la-carpeta
 ```
 
 ### 2. Clonar repositorio  
@@ -62,7 +62,7 @@ php artisan migrate
 
 
 ### 7. Arrancar la aplicacion
-por ultimo desde la terminal (dentro de la carpeta de tu proyecto) ejecuta el servidor con el comando comando:
+por último desde la terminal (dentro de la carpeta de tu proyecto) ejecuta el servidor con el comando:
 
 ```bash
 php artisan serve
